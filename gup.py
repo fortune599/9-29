@@ -16,8 +16,8 @@ def author():
     print "this the apperrino"
     print app
     if request.form['usr'] == "fortune" and request.form['pwd'] == "pqss1234":
-        render_template("success.html")
-    else: render_template("failure.html")
+        return render_template("success.html")
+    else: return render_template("failure.html")
 
 if __name__ == "__main__":
     app.debug = True
