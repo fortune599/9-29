@@ -19,9 +19,9 @@ def author():
     print"\n\n\n"
     print "this the apperrino"
     print app
-    if request.form['usr'] == "fortune" and request.form['pwd'] == "pqss1234":
+    if log.check('usr', 'pwd'):
         return render_template("success.html")
-    else: return render_template("failure.html")
+    else: return render_template("input.html", stuff = "ACC NOT FOUND.")
 
 if __name__ == "__main__":
     app.debug = True
