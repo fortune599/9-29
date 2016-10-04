@@ -20,5 +20,5 @@ def log(k, i):
 def check(k, i):
   h = hashlib.sha1(i).hexdigest()
   if k in d:
-    if d[k] == [h]: return True
+    if d[k] == h: return True
   return False
