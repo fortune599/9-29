@@ -19,7 +19,7 @@ def author():
     print"\n\n\n"
     print "this the apperrino"
     print app
-    if log.check('usr', 'pwd'):
+    if log.check(request.form['usr'], request.form['pwd']):
         return render_template("success.html")
     else: return render_template("input.html", stuff = "ACC NOT FOUND.")
 
