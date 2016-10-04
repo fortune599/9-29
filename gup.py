@@ -9,7 +9,9 @@ def temp():
     print "this the apperrino"
     print app
     d = request.form
-    return render_template("input.html", stuff = log.add(d['user'], d['pass']))
+    if 'user' in d:
+        return render_template("input.html", stuff = log.add(d['user'], d['pass']))
+    else: return render_template("input.html", stuff = "")
 
 @app.route("/auth", methods=['POST'])
 def author():
