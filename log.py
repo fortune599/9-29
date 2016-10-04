@@ -15,6 +15,6 @@ def check(k, i):
   l = []
   for line in m:
     l = line.split(',')
-    if (l[0] == k && l[1] == h):
+    if (l[0] == k and l[1] == h):
       return true;
   return false;
