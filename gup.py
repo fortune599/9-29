@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import log
 
 app = Flask(__name__)
 
@@ -7,8 +8,11 @@ def temp():
     print"\n\n\n"
     print "this the apperrino"
     print app
-    print request.args
-    return render_template("input.html")
+    d = request.form
+    if 'user' in d.keys():
+        log.add(d['user'], d['pass'])
+        return render_template("input.html", stuff = "SUCCESS!")
+    else: return render_template("input.html", stuff = "")
 
 @app.route("/auth", methods=['POST'])
 def author():
