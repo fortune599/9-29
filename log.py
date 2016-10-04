@@ -9,7 +9,7 @@ for line in m:
     d[line.split(',')[0]] = line.split(',')[1]
 
 def log(k, i):
-  if k in d:
+  if k in d.keys():
     return "USERNAME TAKEN"
   h = hashlib.sha1(i).hexdigest()
   myfile = open("log.csv", "a")
