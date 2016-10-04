@@ -6,7 +6,7 @@ m = myfile.readlines()
 myfile.close()
 d = dict()
 for line in m:
-    d[line.split(',')][0] = line.split(',')[1]
+    d[line.split(',')[0]] = line.split(',')[1]
 
 def log(k, i):
   if k in d:
