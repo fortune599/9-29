@@ -1,7 +1,7 @@
 import hashlib
 #this goes in util
 
-myfile = open("login.csv", "r")
+myfile = open("data/login.csv", "r")
 m = myfile.readlines()
 myfile.close()
 d = dict()
@@ -12,7 +12,7 @@ def log(k, i):
   if k in d.keys():
     return "USERNAME TAKEN"
   h = hashlib.sha1(i).hexdigest()
-  myfile = open("login.csv", "a")
+  myfile = open("data/login.csv", "a")
   myfile.write(k + "," + h + "\n")
   myfile.close()
   return "SUCCESS"
