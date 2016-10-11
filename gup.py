@@ -25,9 +25,9 @@ def author():
     if 'usr' in d.keys():
         if util.log.check(request.form['usr'], request.form['pwd']):
             session['username'] = request.form['usr']
-            return redirect(url_for(""))
+            return redirect(url_for("temp"))
         else: return render_template("input.html", stuff = "ACC NOT FOUND.")
-    else: return redirect(url_for("/"))
+    else: return redirect(url_for("temp"))
 
 @app.route("/jacobo")
 def js():
@@ -36,7 +36,7 @@ def js():
 @app.route("/logout")
 def logout():
     session.pop('username')
-    return redirect(url_for("/"))
+    return redirect(url_for("temp"))
 
 if __name__ == "__main__":
     app.debug = True
