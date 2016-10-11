@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, session, url_for
-import util.log
+import util.log, os
 
 app = Flask(__name__)
 
-app.secret_key = '\xbb\x87Qs\x92X-\xe4Pz\x83\x8b'
+app.secret_key = os.urandom(12)
 
 @app.route("/")
 def temp():
@@ -36,7 +36,7 @@ def js():
 @app.route("/logout")
 def logout():
     session.pop('username')
-    return redirect(url_for(""))
+    return redirect(url_for("/"))
 
 if __name__ == "__main__":
     app.debug = True
