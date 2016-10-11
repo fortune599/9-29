@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session, url_for
 import util.log
 
 app = Flask(__name__)
+
+app.secret_key = '\xbb\x87Qs\x92X-\xe4Pz\x83\x8b'
 
 @app.route("/")
 def temp():
