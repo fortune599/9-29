@@ -20,6 +20,7 @@ def author():
         return render_template("input.html", stuff = util.log.add(d['user'], d['pass']))
     if 'usr' in d.keys():
         if util.log.check(request.form['usr'], request.form['pwd']):
+            session['username'] = request.form['usr']
             return render_template("input.html", stuff = "youer in. good jab.")
         else: return render_template("input.html", stuff = "ACC NOT FOUND.")
     else: return redirect(url_for("/"))
@@ -27,6 +28,11 @@ def author():
 @app.route("/jacobo")
 def js():
     return redirect("http://xkcd.com")
+
+@app.route("/logout")
+def logout():
+    session.pop('username')
+    return redirect(url_for(""))
 
 if __name__ == "__main__":
     app.debug = True
